@@ -5,10 +5,10 @@ namespace neural_networks_kubsu.NeuralNetwork.WeightsInitializer.DefaultWeightsI
 {
     public class DefaultWeightsInitializer : IWeightsInitializer
     {
-        /* Инициализирует массив весов. Массив[0] — это смещение. Массив[1..size+1] — значение веса. */
+        /*Initializes an array of weights. Array[0] is the offset. Array[1..size+1] — weight value. */
         public double[][] Initialize(int prevLayerUnits, int units, int layerIndex)
         {
-            var rnd = new Random(); // для функции рандома весов
+            var rnd = new Random(); //for the weight randomization function
             var weights = new double[units][];
             foreach (var i in Enumerable.Range(0, units))
             {

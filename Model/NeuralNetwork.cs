@@ -22,12 +22,12 @@ namespace neural_networks_kubsu.NeuralNetwork
         private double[][] _outputData = new double[100][];        
         public NeuralNetwork()
         {      
-            _inputLayer = new InputLayer(15); // 15 - на входном
-            _layers.Add(new HiddenLayer(70)); // 70 - на первом скрытом
-            _layers.Add(new HiddenLayer(36)); // 36 - на втором скрытом
-            _layers.Add(new OutputLayer(10)); // 10 - на выходном
+            _inputLayer = new InputLayer(15); //15 -at the entrance
+            _layers.Add(new HiddenLayer(70)); //70 -on the first hidden
+            _layers.Add(new HiddenLayer(36)); //36 -on the second hidden
+            _layers.Add(new OutputLayer(10)); //10 -on the weekend
 
-            string path = "datasetLearn.txt"; // примеры для обучения
+            string path = "datasetLearn.txt"; //examples for training
             using (StreamReader sr = new StreamReader(path))
             {
                 int k = 0;
@@ -50,10 +50,10 @@ namespace neural_networks_kubsu.NeuralNetwork
                     k++;
                 }
             }           
-            ConnectLayers(); // Соединяем слои
+            ConnectLayers(); //Connecting layers
             RunForm(); 
 
-            Thread th = new Thread(RunForm); // Разбиваем на потоки график ошибок
+            Thread th = new Thread(RunForm); //We divide the error graph into threads
             th.Start();
 
         }
@@ -157,15 +157,14 @@ namespace neural_networks_kubsu.NeuralNetwork
             }
         }
 
-        // Тут выходит ошибка из-за неправильного обращения для отображения формы из другого потока,
-        // чтобы можно было использовать с отладкой, нужно обращаться через делегат
-
-        // Делегат — класс, который позволяет хранить в себе ссылку
-        // на метод с определённой сигнатурой произвольного класса.
+        //An error occurs here due to an incorrect call to display the form from another thread,
+//to be used with debugging, you need to access it through a delegate
+//A delegate is a class that allows you to store a reference
+//to a method with a specific signature of an arbitrary class.
         private void RunForm()
         {
              
-            //_form1.ShowDialog();
+            //Form1.show dialog();
             _form1.Show();
         }        
 
